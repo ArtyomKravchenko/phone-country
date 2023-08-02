@@ -1,10 +1,22 @@
 version: "3.8"
 
 volumes:
-  redis_data:
+  postgres_data:
     driver: local
 
 services:
+  
+  postgres:
+    image: postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: country_codes
+      POSTGRES_USER: local
+      POSTGRES_PASSWORD: local
+    ports:
+      - 5432:5432
+      
   phone-validator:
     container_name: phone-country
     image: phone-country:local

@@ -1,0 +1,29 @@
+server:
+  servlet:
+    context-path: /
+  port: 8088
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+      show-sql: 'true'
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    #only for demo app, in prod pass all secrets via env vars like   password: {$BD_PASS}
+    password: local
+    username: local
+    url: jdbc:postgresql://postgres/country_codes
+    hikari:
+      minimumIdle: 10
+      maximumPoolSize: 200
+  flyway:
+    outOfOrder: true
+      
+
+
