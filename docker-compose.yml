@@ -1,0 +1,12 @@
+version: "3.8"
+
+volumes:
+  redis_data:
+    driver: local
+
+services:
+  phone-validator:
+    container_name: phone-country
+    image: phone-country:local
+    ports:
+      - "8088:8088"
